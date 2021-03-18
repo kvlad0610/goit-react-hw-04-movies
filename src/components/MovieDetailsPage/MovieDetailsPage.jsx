@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Route, NavLink } from 'react-router-dom';
 import Cast from '../Cast/Cast';
+import Reviews from '../Reviews/Reviews';
 
 const MovieDetailsPage = ({ match }) => {
   const [movieDetails, setMovieDetails] = useState([]);
@@ -14,16 +15,6 @@ const MovieDetailsPage = ({ match }) => {
       .then(({ data }) => setMovieDetails(data));
   }, [movie_id]);
 
-  // const getMovies = async () => {
-  //   const { data } = await axios.get(
-  //     `https://api.themoviedb.org/3/movie/${movie_id}?api_key=7806431bde1ba6e1fc4d430dc735ffb5&language=en-US`,
-  //   );
-  //   return data;
-  // };
-
-  // useEffect(() => {
-  //   getMovies().then(results => setMovieDetails({ ...results }));
-  // }, []);
   console.log(movieDetails);
 
   return (
@@ -53,7 +44,13 @@ const MovieDetailsPage = ({ match }) => {
         render={() => {
           return <Cast id={movie_id} />;
         }}
-      ></Route>
+      />
+      <Route
+        path={`${match.path}/reviews`}
+        render={() => {
+          return <Reviews id={movie_id} />;
+        }}
+      />
     </>
   );
 };
