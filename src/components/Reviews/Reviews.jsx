@@ -19,7 +19,7 @@ const Reviews = ({ id }) => {
           {reviews.map(review => (
             <li key={review.id}>
               <h3>Author: {review.author}</h3>
-              <p>{review.content}</p>
+              <p>{review.content.slice(0, 1000)}...</p>
             </li>
           ))}
         </ul>
