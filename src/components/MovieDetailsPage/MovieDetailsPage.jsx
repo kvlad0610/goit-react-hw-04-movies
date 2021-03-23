@@ -4,6 +4,7 @@ import { Route, NavLink } from 'react-router-dom';
 import Cast from '../Cast/Cast';
 import Reviews from '../Reviews/Reviews';
 import routes from '../../routes';
+import styles from './MovieDetailsPage.module.css';
 
 const MovieDetailsPage = ({ match, location, history }) => {
   const [movieDetails, setMovieDetails] = useState([]);
@@ -18,9 +19,6 @@ const MovieDetailsPage = ({ match, location, history }) => {
   }, [movie_id]);
 
   const handleGoBack = () => {
-    // if (location.state && location.state.from) {
-    //   history.push(location.state.from);
-    // }
     if (location.state) {
       history.push({
         pathname: '/movies',
@@ -36,18 +34,17 @@ const MovieDetailsPage = ({ match, location, history }) => {
 
   return (
     <>
-      <div>
-        <button type="button" onClick={handleGoBack}>
-          Go back
-        </button>
-      </div>
-      <div className="film-card">
+      <button type="button" onClick={handleGoBack} className={styles.button}>
+        Go back
+      </button>
+
+      <div className={styles.film_card}>
         <img
           src={'https://image.tmdb.org/t/p/w300' + movieDetails.poster_path}
           alt=""
         />
-        <div className="film-card-description">
-          <h1>
+        <div className={styles.film_card_description}>
+          <h1 className={styles.title}>
             {movieDetails.title} (
             {String(movieDetails.release_date).slice(0, 4)})
           </h1>
@@ -64,40 +61,29 @@ const MovieDetailsPage = ({ match, location, history }) => {
           </p>
         </div>
       </div>
-      <div className="information">
+      <div className={styles.label__additional}>
         <p>Additional information</p>
-        {location.state ? (
-          <>
-            <NavLink
-              to={{
-                pathname: `${match.url}/cast`,
-                state: {
-                  searchQuery: location.state.searchQuery,
-                  movies: location.state.movies,
-                },
-              }}
-            >
-              Cast
-            </NavLink>{' '}
-            <br />
-            <NavLink
-              to={{
-                pathname: `${match.url}/reviews`,
-                state: {
-                  searchQuery: location.state.searchQuery,
-                  movies: location.state.movies,
-                },
-              }}
-            >
-              Reviews
-            </NavLink>
-          </>
-        ) : (
-          <>
-            <NavLink to={`${match.url}/cast`}>Cast</NavLink> <br />
-            <NavLink to={`${match.url}/reviews`}>Reviews</NavLink>
-          </>
-        )}
+        <NavLink
+          to={{
+            pathname: `${match.url}/cast`,
+            state: location?.state || null,
+          }}
+          className={styles.link}
+          activeClassName={styles.link_active}
+        >
+          Cast
+        </NavLink>{' '}
+        <br />
+        <NavLink
+          to={{
+            pathname: `${match.url}/reviews`,
+            state: location?.state || null,
+          }}
+          className={styles.link}
+          activeClassName={styles.link_active}
+        >
+          Reviews
+        </NavLink>
       </div>
       <Route
         path={`${match.path}/cast`}
