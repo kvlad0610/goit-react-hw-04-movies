@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import styles from './MoviesPage.module.css';
 const queryString = require('query-string');
 
 const MoviesPage = ({ history, location }) => {
@@ -33,14 +34,15 @@ const MoviesPage = ({ history, location }) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={styles.form}>
         <input
           name="search"
           value={searchQuery}
           onChange={handleChange}
           placeholder="Please, Set your query"
+          className={styles.input}
         />
-        <button type="submit" onSubmit={handleSubmit}>
+        <button type="submit" onSubmit={handleSubmit} className={styles.button}>
           Search
         </button>
       </form>

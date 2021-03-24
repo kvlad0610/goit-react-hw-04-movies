@@ -1,0 +1,35 @@
+.form {
+  padding: 10px;
+}
+.input {
+  border: none;
+  width: 250px;
+  border-bottom: 1px solid rgb(36, 35, 35);
+  font-size: 20px;
+  color: rgb(109, 28, 68);
+  margin-right: 10px;
+}
+
+.input:hover,
+.input:focus {
+  border-bottom: 2px solid rgb(37, 116, 206);
+  outline: none;
+}
+
+.input:placeholder-shown {
+  font-size: 16px;
+}
+
+.button {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  font-size: 20px;
+  padding: 5px;
+  font-weight: 700;
+}
+
+.button:hover,
+.button:focus {
+  color: rgb(37, 116, 206);
+}
