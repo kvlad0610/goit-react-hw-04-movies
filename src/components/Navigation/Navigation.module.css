@@ -1,5 +1,7 @@
 .container {
   border-bottom: 1px solid grey;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: lightyellow;
 }
 .link {
   display: inline-block;
@@ -16,8 +18,8 @@
 }
 
 .link:hover {
-  color: rgb(212, 38, 90);
+  color: rgb(37, 116, 206);
 }
 .link_active {
-  color: rgb(206, 37, 121);
+  color: rgb(37, 116, 206);
 }

@@ -21,7 +21,6 @@ const HomePage = ({ location }) => {
             <Link
               to={{
                 pathname: `/movies/${movie.id}`,
-                // state: { from: location },
               }}
             >
               {movie?.title || movie.name}

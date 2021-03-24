@@ -37,11 +37,11 @@
 }
 
 .link:hover {
-  color: rgb(212, 38, 90);
+  color: rgb(37, 116, 206);
 }
 
 .link_active {
-  color: rgb(206, 37, 121);
+  color: rgb(37, 116, 206);
 }
 .button {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -54,7 +54,7 @@
 
 .button:hover,
 .button:focus {
-  color: rgb(206, 37, 121);
+  color: rgb(37, 116, 206);
 }
 .nav__menu {
   padding-top: 15px;
